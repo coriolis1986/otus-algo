@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0'
+
+ext {
+    guavaVersion = '31.1-jre'
+    junitVersion = '5.8.1'
+    lombokVersion = '1.18.24'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("org.projectlombok:lombok:$lombokVersion")
+    implementation("com.google.guava:guava:$guavaVersion")
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
+
+    annotationProcessor("org.projectlombok:lombok:$lombokVersion")
+    testAnnotationProcessor("org.projectlombok:lombok:$lombokVersion")
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+}
+
+test {
+    useJUnitPlatform()
+}
