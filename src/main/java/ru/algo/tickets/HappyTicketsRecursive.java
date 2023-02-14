@@ -1,10 +1,10 @@
 package ru.algo.tickets;
 
-import ru.algo.common.CommonAlgo;
+import ru.algo.common.CommonTickets;
 
 import static java.lang.Integer.parseInt;
 
-public class HappyTicketsRecursive implements CommonAlgo {
+public class HappyTicketsRecursive implements CommonTickets {
 
     @Override
     public String name() {
@@ -19,7 +19,7 @@ public class HappyTicketsRecursive implements CommonAlgo {
     }
 
     // ======= Алгоритм =======
-    private long findTickets(long n) {
+    public long findTickets(long n) {
         algo(n, 0, 0);
 
         return count;

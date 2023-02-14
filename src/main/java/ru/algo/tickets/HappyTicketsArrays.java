@@ -1,12 +1,12 @@
 package ru.algo.tickets;
 
-import ru.algo.common.CommonAlgo;
+import ru.algo.common.CommonTickets;
 
 import java.util.Arrays;
 
 import static java.lang.Integer.parseInt;
 
-public class HappyTicketsArrays implements CommonAlgo {
+public class HappyTicketsArrays implements CommonTickets {
 
     @Override
     public String name() {
