@@ -35,8 +35,8 @@ public abstract class CommonAlgoTest {
 
         prepareCases().forEach((file) -> {
 
-            final String[] input = loadFileFromResources(file + ".in");
-            final String[] output = loadFileFromResources(file + ".out");
+            final String[] input = loadFileFromResources("test." + file + ".in");
+            final String[] output = loadFileFromResources("test." + file + ".out");
 
             long elapsed = currentTimeMillis();
             var result = executeTest(input);
@@ -46,6 +46,12 @@ public abstract class CommonAlgoTest {
                 var inputCurrent = input[i].trim();
                 var resultCurrent = result[i].trim();
                 var outputCurrent = output[i].trim();
+
+                if (resultCurrent.length() > 15)
+                    resultCurrent = resultCurrent.substring(0, 15) + "...";
+
+                if (outputCurrent.length() > 15)
+                    outputCurrent = outputCurrent.substring(0, 15) + "...";
 
                 boolean ok = resultCurrent.equals(outputCurrent);
 
@@ -72,7 +78,7 @@ public abstract class CommonAlgoTest {
     }
 
     @SneakyThrows
-    protected Set<String> prepareCases() {
+    protected Set<Integer> prepareCases() {
         URL url = CommonAlgoTest.class.getClassLoader().getResource(inPath());
 
         assert url != null;
@@ -82,7 +88,8 @@ public abstract class CommonAlgoTest {
             return paths
                     .map(p -> p.getFileName().toString())
                     .filter(p -> p.contains(".in"))
-                    .map(p -> p.replace(".in", ""))
+                    .map(p -> p.replace(".in", "").replace("test.", ""))
+                    .map(Integer::parseInt)
                     .collect(Collectors.toCollection(TreeSet::new));
         }
     }
