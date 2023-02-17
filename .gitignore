@@ -9,3 +9,4 @@ out
 .gradle/
 build/
 /test/
+/src/test/java/ru/algo/LeetCodeTest.java
