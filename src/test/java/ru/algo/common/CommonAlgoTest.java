@@ -10,6 +10,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -24,6 +25,8 @@ public abstract class CommonAlgoTest {
     protected abstract CommonAlgo init();
 
     protected abstract String inPath();
+
+    private static final int STRING_LIMIT = 20;
 
     @Test
     void findTickets() {
@@ -42,28 +45,28 @@ public abstract class CommonAlgoTest {
             var result = executeTest(input);
             elapsed = currentTimeMillis() - elapsed;
 
-            for (int i = 0; i < output.length; i++) {
-                var inputCurrent = input[i].trim();
-                var resultCurrent = result[i].trim();
-                var outputCurrent = output[i].trim();
+            var inputCurrent = Arrays.stream(input)
+                    .map(str -> str.length() > STRING_LIMIT ? str.substring(0, STRING_LIMIT) + "..." : str.trim())
+                    .collect(Collectors.joining("/"));
 
-                if (resultCurrent.length() > 15)
-                    resultCurrent = resultCurrent.substring(0, 15) + "...";
+            var resultCurrent = Arrays.stream(result)
+                    .map(str -> str.length() > STRING_LIMIT ? str.substring(0, STRING_LIMIT) + "..." : str.trim())
+                    .collect(Collectors.joining("/"));
 
-                if (outputCurrent.length() > 15)
-                    outputCurrent = outputCurrent.substring(0, 15) + "...";
+            var outputCurrent = Arrays.stream(output)
+                    .map(str -> str.length() > STRING_LIMIT ? str.substring(0, STRING_LIMIT) + "..." : str.trim())
+                    .collect(Collectors.joining("/"));
 
-                boolean ok = resultCurrent.equals(outputCurrent);
+            boolean ok = resultCurrent.equals(outputCurrent);
 
-                String res = ok ? format("Время, мсек: [%d]", elapsed) : format("Ожидалось: [%s]. Ошибка", outputCurrent);
+            String res = ok ? format("Время, мсек: [%d]", elapsed) : format("Ожидалось: [%s]. Ошибка", outputCurrent);
 
-                System.out.printf("[%s]: Вход: [%s] Результат: [%s]. [%s]\n",
-                        file,
-                        inputCurrent,
-                        resultCurrent,
-                        res
-                        );
-            }
+            System.out.printf("[%s]: Вход: [%s] Результат: [%s]. [%s]\n",
+                    file,
+                    inputCurrent,
+                    resultCurrent,
+                    res
+                    );
         });
 
         System.out.println("\n");
