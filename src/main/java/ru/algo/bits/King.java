@@ -16,11 +16,6 @@ public class King implements CommonChess {
         return "Король";
     }
 
-    @Override
-    public String[] exec(String[] input) {
-        return guessMoves(Integer.parseInt(input[0])).toResult();
-    }
-
     public ChessMove guessMoves(int pos) {
 
         BigInteger field = ONE;

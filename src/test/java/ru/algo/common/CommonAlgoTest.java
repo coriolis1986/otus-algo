@@ -29,7 +29,7 @@ public abstract class CommonAlgoTest {
     private static final int STRING_LIMIT = 20;
 
     @Test
-    void findTickets() {
+    void executeTest() {
         startTest();
     }
 

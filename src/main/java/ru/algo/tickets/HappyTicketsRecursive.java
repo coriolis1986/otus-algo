@@ -2,8 +2,6 @@ package ru.algo.tickets;
 
 import ru.algo.common.CommonTickets;
 
-import static java.lang.Integer.parseInt;
-
 public class HappyTicketsRecursive implements CommonTickets {
 
     @Override
@@ -11,14 +9,6 @@ public class HappyTicketsRecursive implements CommonTickets {
         return "Счастливые билеты (рекурсия)";
     }
 
-    @Override
-    public String[] exec(String[] input) {
-        long n = parseInt(input[0]);
-
-        return new String[] { Long.toString(findTickets(n)) };
-    }
-
-    // ======= Алгоритм =======
     public long findTickets(long n) {
         algo(n, 0, 0);
 

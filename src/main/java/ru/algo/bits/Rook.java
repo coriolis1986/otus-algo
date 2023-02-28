@@ -18,11 +18,6 @@ public class Rook implements CommonChess {
     }
 
     @Override
-    public String[] exec(String[] input) {
-        return guessMoves(Integer.parseInt(input[0])).toResult();
-    }
-
-    @Override
     public ChessMove guessMoves(int pos) {
 
         BigInteger start = ONE.shiftLeft(pos);

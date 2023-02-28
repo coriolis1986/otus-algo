@@ -2,18 +2,11 @@ package ru.algo.primes;
 
 import ru.algo.common.CommonPrimes;
 
-import static java.lang.Long.parseLong;
-
 public class EratosthenesBitPrimes implements CommonPrimes {
 
     @Override
     public String name() {
         return "Простые числа (решето Эрастофена с битовой матрицей)";
-    }
-
-    @Override
-    public String[] exec(String[] input) {
-        return new String[] { Long.toString(primes(parseLong(input[0]))) };
     }
 
     @Override

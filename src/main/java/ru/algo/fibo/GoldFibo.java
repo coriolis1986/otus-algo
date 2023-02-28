@@ -7,16 +7,10 @@ import java.math.BigInteger;
 import static java.lang.Math.sqrt;
 
 public class GoldFibo implements CommonFibo {
+
     @Override
     public String name() {
         return "Числа Фибоначчи (золотое сечение)";
-    }
-
-    @Override
-    public String[] exec(String[] input) {
-        long n = Long.parseLong(input[0]);
-
-        return new String[] { fibo(n).toString() };
     }
 
     @Override

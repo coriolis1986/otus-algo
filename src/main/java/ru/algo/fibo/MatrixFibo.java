@@ -16,13 +16,6 @@ public class MatrixFibo implements CommonFibo {
     }
 
     @Override
-    public String[] exec(String[] input) {
-        long n = Long.parseLong(input[0]);
-
-        return new String[] { fibo(n).toString() };
-    }
-
-    @Override
     public BigInteger fibo(long n) {
 
         if (n == 0)

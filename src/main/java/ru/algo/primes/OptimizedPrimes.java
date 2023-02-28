@@ -2,18 +2,11 @@ package ru.algo.primes;
 
 import ru.algo.common.CommonPrimes;
 
-import static java.lang.Long.parseLong;
-
 public class OptimizedPrimes implements CommonPrimes {
 
     @Override
     public String name() {
         return "Простые числа (оптимизация поиска)";
-    }
-
-    @Override
-    public String[] exec(String[] input) {
-        return new String[] { Long.toString(primes(parseLong(input[0]))) };
     }
 
     private long count = 0;

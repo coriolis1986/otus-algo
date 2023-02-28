@@ -12,11 +12,6 @@ public class DivisorsPrimes implements CommonPrimes {
     }
 
     @Override
-    public String[] exec(String[] input) {
-        return new String[] { Long.toString(primes(parseLong(input[0]))) };
-    }
-
-    @Override
     public long primes(long n) {
 
         long count = n >= 2 ? 1 : 0; // 2 не участвует в проверке ниже, поэтому засчитаем его сразу

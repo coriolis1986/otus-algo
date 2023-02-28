@@ -18,11 +18,6 @@ public class Horse implements CommonChess {
     }
 
     @Override
-    public String[] exec(String[] input) {
-        return guessMoves(Integer.parseInt(input[0])).toResult();
-    }
-
-    @Override
     public ChessMove guessMoves(int pos) {
         BigInteger field = ONE.shiftLeft(pos);
         BigInteger mask = prepareMask(pos);
