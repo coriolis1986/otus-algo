@@ -13,13 +13,6 @@ public class HappyTicketsArrays implements CommonTickets {
         return "Счастливые билеты (с массивами)";
     }
 
-    @Override
-    public String[] exec(String[] input) {
-        long n = parseInt(input[0]);
-
-        return new String[] { Long.toString(findTickets(n)) };
-    }
-
     public long findTickets(long n) {
         long[] arr = new long[10];
         Arrays.fill(arr, 1);
