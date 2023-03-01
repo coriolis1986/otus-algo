@@ -2,9 +2,6 @@ package ru.algo.power;
 
 import ru.algo.common.CommonPower;
 
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-
 public class IterativePower implements CommonPower {
 
     @Override
