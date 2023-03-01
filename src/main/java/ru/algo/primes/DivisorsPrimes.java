@@ -2,8 +2,6 @@ package ru.algo.primes;
 
 import ru.algo.common.CommonPrimes;
 
-import static java.lang.Long.parseLong;
-
 public class DivisorsPrimes implements CommonPrimes {
 
     @Override

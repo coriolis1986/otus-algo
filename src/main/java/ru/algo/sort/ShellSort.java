@@ -6,7 +6,7 @@ public class ShellSort implements CommonSort {
 
     private static final int[] DEFAULT_STEP_SIZES = { 8, 4, 2, 1 };
 
-    private int[] stepSizes;
+    private final int[] stepSizes;
 
     public ShellSort() {
         this.stepSizes = DEFAULT_STEP_SIZES;

@@ -4,8 +4,6 @@ import ru.algo.common.CommonTickets;
 
 import java.util.Arrays;
 
-import static java.lang.Integer.parseInt;
-
 public class HappyTicketsArrays implements CommonTickets {
 
     @Override
