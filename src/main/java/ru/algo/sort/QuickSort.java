@@ -2,8 +2,6 @@ package ru.algo.sort;
 
 import ru.algo.common.CommonSort;
 
-import static java.lang.String.format;
-
 public class QuickSort implements CommonSort {
 
     @Override
