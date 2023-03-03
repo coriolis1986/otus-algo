@@ -1,7 +1,8 @@
 package ru.algo.common;
 
+import lombok.SneakyThrows;
+
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Random;
 
 public abstract class CommonExternalSort {
@@ -11,6 +12,7 @@ public abstract class CommonExternalSort {
     protected static final String OUTPUT_FILE_NAME = "/opt/payload_sorted.dat";
     protected static final String PARTS_DIR = "/opt/sort";
 
+    @SneakyThrows
     protected void generate() {
         final int n = 10000;
         final int t = 100000;
@@ -22,9 +24,6 @@ public abstract class CommonExternalSort {
                 int num = random.nextInt(t);
                 writer.write(num + "\n");
             }
-
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }
